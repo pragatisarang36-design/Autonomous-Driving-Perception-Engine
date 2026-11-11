@@ -1,143 +1,75 @@
-# Computer Vision Systems
+﻿# Autonomous Driving Perception Engine
 
-## Dev/Creator = tubakhxn
+**Developer: Pragati Sarang**  
+GitHub: [pragatisarang36-design](https://github.com/pragatisarang36-design)
 
-A collection of advanced Computer Vision systems focused on autonomous perception, infrastructure intelligence, and sports analytics.
+A computer vision-based perception system designed to process video footage and identify, track, and monitor objects in a scene using YOLOv8, OpenCV, and Python.
 
-All projects are built using Python, OpenCV, YOLO, and modern AI-based visual perception techniques.
+## Features
 
----
+- YOLOv8-based object detection with confidence-based box coloring and labels.
+- Multi-object tracking with unique IDs assigned to detected objects.
+- Object movement history shown as trajectory trails.
+- Per-frame velocity estimation and directional movement arrows.
+- Interactive mouse click to lock onto a detected object, with a reset control.
+- Zoom inset visualization for the locked target.
+- Real-time video processing and display while frames are processed.
+- Processed video output generation.
+- HUD-style visual interface with object count, tracking status, and source-video time.
+- Frame progress indicators in the video and terminal progress bar. The source video's FPS is used for output timing.
 
-# Projects Included
+## Technologies Used
 
-## 1. Autonomous Driving Perception Engine
+- Python
+- OpenCV
+- NumPy
+- YOLOv8 (Ultralytics)
+- PyTorch (installed as a dependency of Ultralytics)
+- tqdm
 
-A computer vision system that transforms dashcam footage into a perception layer for autonomous driving research.
+## Project Structure
 
-### Features
+```text
+cv_projects-main/
+├── Autonomous Driving Perception.py
+├── LICENSE
+└── README.md
+```
 
-* Vehicle Detection
-* Pedestrian Detection
-* Multi-Object Tracking
-* Monocular Depth Estimation
-* 3D Perception Visualization
-* Future Path Prediction
-* Traffic Scene Understanding
-* Risk Zone Analysis
-* Driving Intelligence Dashboard
+The script loads the `yolov8n.pt` model through Ultralytics. The application automatically installs its listed Python dependencies (`opencv-python`, `numpy`, `ultralytics`, and `tqdm`) when they are missing. Ultralytics handles the PyTorch dependency.
 
-### Relevant Resources
+## Installation and Execution
 
-Repository:
-https://github.com/tubakhxn/computer-vision-perception
+Open PowerShell or Command Prompt and clone the repository:
 
-Wikipedia:
+```powershell
+git clone <repository-url>
+cd cv_projects-main
+```
 
-* https://en.wikipedia.org/wiki/Autonomous_car
-* https://en.wikipedia.org/wiki/Computer_vision
-* https://en.wikipedia.org/wiki/Object_detection
-* https://en.wikipedia.org/wiki/Depth_perception
-* https://en.wikipedia.org/wiki/Pedestrian_detection
+Run the application with a video file as the first argument and an output video filename as the optional second argument:
 
----
+```powershell
+python "Autonomous Driving Perception.py" "path\to\input-video.mp4" "processed-output.mp4"
+```
 
-## 2. Power Grid Fault Detection System
+For example, if the input video is in the repository folder:
 
-An AI-powered infrastructure monitoring platform for analyzing transmission towers, insulators, and power-grid assets using computer vision.
+```powershell
+python "Autonomous Driving Perception.py" "drive.mp4" "drive-processed.mp4"
+```
 
-### Features
+If you omit the output filename, the processed video is saved as `yolovx_output.mp4` in the current working directory. The script opens a window for live viewing and writes the annotated frames to the output file.
 
-* Transmission Tower Detection
-* Insulator Detection
-* Asset Monitoring
-* Infrastructure Mapping
-* Fault Localization
-* Component Classification
-* Risk Visualization
-* Infrastructure Analytics
-* Real-Time Monitoring Dashboard
+## Controls
 
-### Relevant Resources
+| Key / Action | Function |
+| --- | --- |
+| `Q` | Quit processing |
+| `R` | Reset target lock |
+| `SPACE` | Pause / Resume |
+| Mouse click | Select and lock a detected object for tracking |
 
-Wikipedia:
+## Disclaimer
 
-* https://en.wikipedia.org/wiki/Electric_power_transmission
-* https://en.wikipedia.org/wiki/Electric_power_distribution
-* https://en.wikipedia.org/wiki/Insulator_(electricity)
-* https://en.wikipedia.org/wiki/Transmission_tower
-* https://en.wikipedia.org/wiki/Computer_vision
-
-Video Source Example:
-
-https://www.youtube.com/results?search_query=transmission+tower+inspection+drone
-
----
-
-## 3. Football Match Intelligence Platform
-
-A sports analytics platform that extracts player movement, speed, positioning, and tactical information from football match footage.
-
-### Features
-
-* Player Detection
-* Multi-Player Tracking
-* Speed Estimation
-* Distance Covered Analytics
-* Tactical Heatmaps
-* Team Formation Analysis
-* Match Intelligence Dashboard
-* Event Tracking
-* Performance Analytics
-
-### Relevant Resources
-
-Wikipedia:
-
-* https://en.wikipedia.org/wiki/Sports_analytics
-* https://en.wikipedia.org/wiki/Association_football
-* https://en.wikipedia.org/wiki/Object_tracking
-* https://en.wikipedia.org/wiki/Computer_vision
-
-Video Source Example:
-
-https://www.youtube.com/results?search_query=football+match+broadcast+4k
-
----
-
-# Technologies Used
-
-* Python
-* OpenCV
-* NumPy
-* YOLO
-* SciPy
-* Matplotlib
-* Pillow
-* Computer Vision
-* Artificial Intelligence
-
----
-
-# Installation
-
-Clone the repository:
-
-git clone <repo-url>
-
-cd <repo-folder>
-
-Install dependencies:
-
-pip install -r requirements.txt
-
-Run any project:
-
-python main.py
-
----
-
-# Research & Educational Purposes Only
-
-These projects are intended solely for experimentation, learning, research, and computer vision development.
-
-No project is intended for production deployment, safety-critical applications, infrastructure operations, autonomous vehicle control, or professional sports decision-making.
+This project is intended for research and educational purposes. It is a computer vision research project that demonstrates object detection and tracking on video footage. It does not independently control autonomous vehicles and does not guarantee road safety. Do not rely on its output for vehicle operation or safety-critical decisions.
